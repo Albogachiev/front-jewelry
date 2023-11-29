@@ -1,0 +1,146 @@
+body{
+  background-color: rgb(203, 250, 250);
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: 'Raleway', sans-serif;
+}
+.wrapper{
+  background: rgb(247, 243, 243);
+  box-shadow: 0px 10px 20px rgb(85, 84, 84); 
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+  box-sizing: border-box;
+  outline: none;
+  @media(max-width:1130px){
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  a{
+    text-decoration: none; 
+    color: inherit; 
+  }
+  li{
+    padding-right: 10px;
+    list-style-type: none; 
+
+    .liked{
+      cursor: pointer; 
+    }
+  }
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.blockOfInput{
+  display: flex;
+  @media(max-width:540px){
+    display: inline-block;
+    margin: 0 auto;
+    align-items: center;
+  }
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+.search-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  max-width: 980px;
+  margin: auto;
+  .zagolovok{
+    opacity: 0.5;
+  }
+  .search-block{
+    display: flex;
+    height: 25px;
+    input{
+      border: 0;
+      padding: 12px;
+      width: 200px;
+    }
+    .search{
+      width: 16px;
+    }
+  }
+
+}
+  .items{
+    flex: 1;
+    max-height: 63%;
+    overflow: auto;
+    .cartEmpty{
+      margin-top: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items:  center;
+      img{
+        max-width: 80px;
+      }
+      button{
+          width: 50%;
+          height: 40px;
+          background-color: rgb(105, 168, 4);
+          border-radius: 18px;
+          border: 0; 
+          color: rgb(248, 252, 252);
+          font-size: 16px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: background 0.2s ease-in-out;
+          &:hover{
+            background: lighten($color: #a0c02c, $amount: 10%)
+          }
+          &:active{
+            background: darken($color: #01a31c, $amount: 0%);
+        }
+      }
+    }
+  }
+  .cartTotalBlock{
+    ul{
+      margin-bottom: 18px;
+    }
+    li{
+      display: flex;
+      align-items: flex-end;
+      margin-top: 16px;
+    }
+    div{
+      flex: 1;
+      height: 1px;
+      border-bottom: 1px dashed rgb(145, 142, 142);
+      position: relative;
+      top: -4px;
+      margin: 0 7px;
+    }
+    button{
+      &:disabled{
+        background-color:rgb(154, 161, 161);
+        cursor: default !important;
+      }
+      width: 100%;
+      height: 40px;
+      background-color: rgb(105, 168, 4);
+      border-radius: 18px;
+      border: 0; 
+      color: rgb(248, 252, 252);
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+      &:hover{
+        background: lighten($color: #a0c02c, $amount: 10%)
+      }
+      &:active{
+        background: darken($color: #01a31c, $amount: 0%);
+      }
+    }
+  }

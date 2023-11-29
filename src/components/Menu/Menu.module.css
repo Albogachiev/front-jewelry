@@ -1,0 +1,40 @@
+.menuContainer{
+    border-radius: 10px;
+}
+.menuContainer ul{
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    @media(max-width:630px){
+        overflow: scroll;
+        width: 300px;
+        margin: 0 auto;
+    }
+    @media(max-width:570px){
+        width: 200px;
+      }
+}
+.menuContainer ul li {
+        background:   rgb(219, 224, 245);
+        padding: 10px;
+        border-radius: 15px;
+        margin-right: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.1s ease-in-out;
+    }
+.menuContainer ul li:hover{
+    background-color: rgb(180, 194, 250);
+}
+.textFromMenu{
+    padding: 25px;
+}
+.menuContainer p{
+    padding: 9px;
+    color: rgb(71, 70, 70);
+    font-size: 17px;
+}
+.menuContainer p:hover{
+    color: rgb(233, 129, 10);
+    cursor: pointer;
+}

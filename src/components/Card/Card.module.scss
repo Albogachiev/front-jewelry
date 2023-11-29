@@ -1,0 +1,65 @@
+.card{
+    margin-top: 20px;
+    transition: box-shadow 0.2s ease-in-out;
+    transform: 0.2s ease-in-out;
+    @media(max-width:570px){
+      width: 120px;
+    }
+    @media(max-width:433px){
+      width: 90px;
+    }
+    &:hover{
+      box-shadow: 0px 14px 35px rgb(152, 214, 243);
+      transform: translateY(-5px);
+    }
+    border: 1px solid rgb(196, 245, 245);
+    padding: 20px;
+    width: 170px;
+    border-radius: 40px;
+    .liked{
+      position: absolute;
+      cursor: pointer;
+    }
+    .imgJewelry{
+      @media(max-width:570px){
+        width: 100px;
+        height: 100px;
+        margin-left: 0px;
+      }
+      width: 150px;
+      height: 155px;
+      border-radius: 20px;
+      margin-left: 10px;
+    }
+    .infoProduct{
+      display: flex;
+      justify-content: space-between;
+    }
+    .price{
+      display: flex;
+    }
+    span{
+      font-size: 13px;
+      @media(max-width:570px){
+        font-size: 0px;
+      }
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+    .imgAdd{
+        width: 30px;
+        height: 30px;
+        background-color: rgb(177, 173, 173);
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      .onClick{
+        width: 27px;
+        height: 27px;
+        background-color: rgb(177, 173, 173);
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 2px;
+        margin-bottom: 1px;
+      }
+  }
