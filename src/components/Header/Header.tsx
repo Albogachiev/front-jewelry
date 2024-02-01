@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { setOpenedBusket } from '../../redux/slice/opened';
+//@ts-ignore
 import styles from "./Header.module.scss";
 import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../redux/store';
 
 const Header = () => {
     const dispatch = useDispatch()
-    const { summBasket } = useSelector((el) => el.busket);
+    const { summBasket } = useSelector((el:RootState) => el.busket);
 
     return ( 
         <div className={styles.containerHead}>
@@ -30,7 +32,7 @@ const Header = () => {
                 <img onClick={() => dispatch(setOpenedBusket(true))} 
                      alt='корзина юзера' 
                      src='/img/basket.svg' />
-                <span onClick={()=> dispatch(setOpenedBusket(true))}>{summBasket}</span>
+                <span onClick={() => dispatch(setOpenedBusket(true))}>{summBasket}</span>
             </li>
 
             <li>

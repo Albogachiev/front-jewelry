@@ -1,15 +1,16 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { TypeItems, Status, Item } from './typesSlice/types';
 
-const initialState = { 
+const initialState:TypeItems = { 
     items:[],
     searchValue:'',
-    status:'LOADING',
+    status:Status.Loading,
  }
 
  export const itemsFetchData = createAsyncThunk(
     '/items',
     async () => {
-    let data = [
+    let data:Item[] = [
       {id:1, title:'качественное серебро', name:'серебро', price:1200, img:['/img/a1.png', '/img/a6.png', '/img/a7.png']},
       {id:2, title:'Итальянская бижутерия', name:'золото', price:1300, img:['/img/a2.png', '/img/a5.png', '/img/a5.png']},
       {id:3, title:'Золото качественное', name:'бижутерия', price:2200, img:['/img/a3.png', '/img/a4.png', '/img/a4.png']},
@@ -29,25 +30,25 @@ const itemsSlice = createSlice({
   name: 'items',
   initialState,
   reducers: {
-    itemsHome(state, actions){
+    itemsHome(state, actions:PayloadAction<Item[]>){
             state.items = actions.payload
     },
-    setSearchValue(state, actions){
+    setSearchValue(state, actions:PayloadAction<string>){
         state.searchValue = actions.payload
     },
   },
   extraReducers: (builder) => {
     builder.addCase(itemsFetchData.pending, (state, action) => {
       state.items = [...Array(8)]
-      state.status = 'LOADING'
+      state.status = Status.Loading
     })
     builder.addCase(itemsFetchData.fulfilled, (state, action) => {
       state.items = action.payload
-      state.status = 'SECCES'
+      state.status = Status.Success
     })
     builder.addCase(itemsFetchData.rejected, (state, action) => {
       state.items = []
-      state.status = 'ERROR'
+      state.status = Status.Error
     })
   }
 })

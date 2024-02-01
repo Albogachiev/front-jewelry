@@ -1,19 +1,26 @@
 import React, { useRef } from "react";
+//@ts-ignore
 import style from "./Card.module.scss";
 import ContentLoader from "react-content-loader";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { setBusket,
-         setDeleteBusket,} from "../../redux/slice/locStorBusket.js";
+         setDeleteBusket,} from "../../redux/slice/locStorBusket";
 import { setDeleteFavorite, 
-         setFavorited } from "../../redux/slice/locStorFavorite.js";
+         setFavorited } from "../../redux/slice/locStorFavorite";
+import { RootState } from "../../redux/store";
+import { Item } from "../../redux/slice/typesSlice/types";
+type cardTypes = Item & {
+    status:string,
+    favCard?:string
+}
 
-const Card = ({id,name,title,price,img,status,favCard}) =>{
+const Card:React.FC<cardTypes> = ({id,name,title,price,img,status,favCard}) =>{
     const dispatch = useDispatch()
     const ref = useRef(false)
-    const { busketData, } = useSelector((el) => el.busket);
-    const { favorited } = useSelector((el) => el.favorited)
+    const { busketData, } = useSelector((el:RootState) => el.busket);
+    const { favorites } = useSelector((el:RootState) => el.favorited)
     const imageElem = img[0];
     
     const onClickPlus = () => {
@@ -25,18 +32,18 @@ const Card = ({id,name,title,price,img,status,favCard}) =>{
         }
     }
 
-    const isItemAdded = (id) => {
+    const isItemAdded = (id:number) => {
         const items = busketData.find(prev => id === prev.itemsId)
         return items
     }
     
-    const isItemFavorited = (id) => {
-            const favoritedItems = favorited.some(el => el?.itemsId === id)
+    const isItemFavorited = (id:number) => {
+            const favoritedItems = favorites.some(el => el?.itemsId === id)
             return favoritedItems
     }
 
     const like = () =>{
-        const item = favorited.find(el => el.itemsId === id);
+        const item = favorites.find(el => el.itemsId === id);
         if(item){
             dispatch(setDeleteFavorite(id))
         }else{
@@ -46,13 +53,13 @@ const Card = ({id,name,title,price,img,status,favCard}) =>{
     
     React.useEffect(() => {
         if(ref.current){
-          const json = JSON.stringify(favorited);
+          const json = JSON.stringify(favorites);
           const jsonBusket = JSON.stringify(busketData)
           localStorage.setItem('fav', json);
           localStorage.setItem('busket', jsonBusket);
         }
         ref.current = true
-      },[favorited, busketData])
+      },[favorites, busketData])
       
 
     return (

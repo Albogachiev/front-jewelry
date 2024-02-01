@@ -1,11 +1,9 @@
 import React from 'react';
+//@ts-ignore
 import styles from './GalleryItems.module.css';
-import PropTypes from 'prop-types';
+import { Item } from '../../redux/slice/typesSlice/types';
 
-export default function ImageSlider({elem}) {
-  ImageSlider.propTypes = {
-    elem: PropTypes.any,
-  };
+export default function ImageSlider({elem}:{elem:Item[]}) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const slider = elem?.map((el) => el.img)[0];
   

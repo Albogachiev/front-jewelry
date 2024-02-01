@@ -1,12 +1,13 @@
 import React from "react";
-import Card from "../Card/Card.jsx";
-import { setSearchValue, itemsFetchData } from '../../redux/slice/itemsHome.js';
-import { useSelector, useDispatch } from "react-redux";
+import Card from "../Card/Card";
+import { setSearchValue, itemsFetchData } from '../../redux/slice/itemsHome';
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch } from "../../redux/store";
 
 const Home = () => {
-    const dispatch = useDispatch()
-    const { items, searchValue, status } = useSelector((el) => el.items);
-    const { selectCategori, } = useSelector((el) => el.categori)
+    const dispatch = useAppDispatch()
+    const { items, searchValue, status } = useSelector((el:RootState) => el.items);
+    const { selectCategori, } = useSelector((el:RootState) => el.categori)
     
 
     const renderItems = () =>{

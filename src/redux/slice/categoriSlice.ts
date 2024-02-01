@@ -1,6 +1,7 @@
-import { createSlice, } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TypeCategori } from './typesSlice/types';
   
-  const initialState = { 
+  const initialState:TypeCategori = { 
       categori:[
         'все', 'золото','серебро','бижутерия','золото','итальянское',
       ],
@@ -11,7 +12,7 @@ const categoriSlice = createSlice({
   name: 'categori',
   initialState,
   reducers: {
-    setCategori(state, actions){
+    setCategori(state, actions:PayloadAction<string>){
         if(actions.payload === 'все'){
             state.selectCategori = ''  
         }

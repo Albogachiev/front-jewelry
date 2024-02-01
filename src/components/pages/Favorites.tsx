@@ -1,8 +1,9 @@
-import Card from "../Card/Card.jsx";
+import { RootState } from "../../redux/store.js";
+import Card from "../Card/Card";
 import { useSelector } from "react-redux";
 
 const Favorites = () => {
-    const { favorited, status } = useSelector((el) => el.favorited)
+    const { favorites, status } = useSelector((el:RootState) => el.favorited)
     return (
         <>
         <div className='search-input'>
@@ -10,12 +11,13 @@ const Favorites = () => {
         </div>
         <div className='cards'>
     <div className='content'>
-        {favorited?.map((obj, index) => (
+        {favorites?.map((obj, index) => (
             <Card
             favCard={'карточка из закладок'}
             status={status}
             key={index}
             id={obj?.id}
+            name={obj?.name}
             title={obj?.title}
             price={obj?.price}
             img={obj?.img}

@@ -1,25 +1,27 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+//@ts-ignore
 import styles from './Drawer.module.scss';
-import { setDeleteBusket, } from '../../redux/slice/locStorBusket.js';
-import { setOpenedBusket } from '../../redux/slice/opened.js';
-import Info from '../Info.jsx';
+import { setDeleteBusket, } from '../../redux/slice/locStorBusket';
+import { setOpenedBusket } from '../../redux/slice/opened';
+import { RootState } from '../../redux/store';
+import Info from '../Info';
+import { favoriteTypes } from '../../redux/slice/typesSlice/types';
 
 const Drawer = () => {
     const dispatch = useDispatch();
     const { busketData, 
             summBasket, 
-            isLoading }  = useSelector((el) => el.busket);
-    const { openedBusket } = useSelector((el) => el.opened);
-    const [isComplete, setIsComplete] = React.useState(false)
+            isLoading }  = useSelector((el:RootState) => el.busket);
+    const { openedBusket } = useSelector((el:RootState) => el.opened);
+    const [isComplete, setIsComplete] = React.useState<boolean>(false)
     
-    const onClickComplete = async (obj) =>{
+    const onClickComplete = async ():Promise<void> =>{
         dispatch(setDeleteBusket('clearBusket'))
         setIsComplete(true)
      } 
 
-    const removeItemInBusket = (obj) => {
+    const removeItemInBusket = (obj:favoriteTypes) => {
         dispatch(setDeleteBusket(obj));
     }
     
@@ -83,7 +85,7 @@ const Drawer = () => {
         </ul>
         
         <button className={styles.buttonDraw} 
-                disabled={isLoading} 
+                disabled={isLoading === 'SECCES' ? true : false} 
                 onClick={onClickComplete}>Оформить заказ</button>
                 
         </div>}

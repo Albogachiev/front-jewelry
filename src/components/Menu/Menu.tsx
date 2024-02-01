@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-
+//@ts-ignore
 import style from './Menu.module.css';
-import { setCategori } from '../../redux/slice/categoriSlice.js';
+import { setCategori } from '../../redux/slice/categoriSlice';
+import { RootState } from '../../redux/store';
 
 export function Menu() {
-const { categori, } = useSelector((el) => el.categori);
+const { categori, } = useSelector((el:RootState) => el.categori);
 
 const dispatch = useDispatch()
   return (

@@ -1,14 +1,14 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Header from './components/Header/Header.jsx';
-import Home from './components/pages/Home.jsx';
-import Favorites from './components/pages/Favorites.jsx';
-import { Menu } from './components/Menu/Menu.jsx';
-import Drawer from './components/Drawer/Drawer.jsx';
-import { GalleryItems } from './components/GalleryItems/GalleryItems.jsx';
+import Header from './components/Header/Header';
+import Home from './components/pages/Home';
+import Favorites from './components/pages/Favorites';
+import { Menu } from './components/Menu/Menu';
+import Drawer from './components/Drawer/Drawer';
+import { GalleryItems } from './components/GalleryItems/GalleryItems';
 
 function App() {
-    
   return (
     <div className='wrapper'>
         <Drawer />

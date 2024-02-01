@@ -1,7 +1,16 @@
-const Info = ({title, discription,img,butName,but}) => {
+
+type InfoTypes = {
+  title:string,
+  discription:string,
+  img:string,
+  butName:string,
+  but:() => void
+}
+
+const Info:React.FC<InfoTypes> = ({title, discription,img,butName,but}) => {
   return (
     <div>
-      <div alt='data' className='cartEmpty'>
+      <div className='cartEmpty'>
         <img alt='data' src={img} />
         <h2>{discription}</h2>
         <p className=''>{title}</p>

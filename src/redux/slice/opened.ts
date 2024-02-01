@@ -1,6 +1,6 @@
-import { createSlice, } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction} from '@reduxjs/toolkit';
   
-  const initialState = { 
+  const initialState:{openedBusket:boolean} = { 
       openedBusket:false,
   }
 
@@ -8,7 +8,7 @@ const openedSlice = createSlice({
   name: 'opened',
   initialState,
   reducers: {
-    setOpenedBusket(state, actions){
+    setOpenedBusket(state, actions:PayloadAction<boolean>){
       state.openedBusket = actions.payload
     },
   },
