@@ -44,7 +44,7 @@ const itemsSlice = createSlice({
     })
     builder.addCase(itemsFetchData.fulfilled, (state, action) => {
       state.items = action.payload
-      state.status = Status.Success
+      state.status = Status.SUCCESS
     })
     builder.addCase(itemsFetchData.rejected, (state, action) => {
       state.items = []

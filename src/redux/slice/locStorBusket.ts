@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import { TypeBusket, favoriteTypes, Item } from './typesSlice/types';
+import { TypeBusket, favoriteTypes, Status } from './typesSlice/types';
 
 export const getFavoritesFromLS = createAsyncThunk(
   'busket/getFavoritesFromLS',
@@ -12,14 +12,10 @@ export const getFavoritesFromLS = createAsyncThunk(
      return {busketData, summBasket};
  }
 )
-enum Status {
-  loading='LOADING',
-  secces='SECCES',
-  rejected='REJECTED'
-}
+
   const initialState:TypeBusket = { 
     busketData:[],
-    isLoading:'LOADING',
+    isLoading:Status.Loading,
     summBasket:0,
   }
 
@@ -37,9 +33,8 @@ enum Status {
         if(actions.payload === 'clearBusket'){
            state.busketData = []
            state.summBasket = 0
-        }else if(typeof actions.payload === 'object'){
-          //@ts-ignore
-          state.busketData = state.busketData.filter((el) => el.id !== actions.payload.id)
+        }else{
+          state.busketData = state.busketData.filter((el) => el.id !== (actions.payload as favoriteTypes).id)
           state.summBasket = state.busketData.reduce((sum, el) => {
             return Number(el.price) + sum
           },0);
@@ -49,16 +44,16 @@ enum Status {
     extraReducers: (builder) => {
       builder.addCase(getFavoritesFromLS.pending, (state, action) => {
         state.busketData = [...Array(8)]
-        state.isLoading = Status.loading
+        state.isLoading = Status.Loading
       })
       builder.addCase(getFavoritesFromLS.fulfilled, (state, action) => {
         state.busketData = action.payload.busketData
         state.summBasket = action.payload.summBasket
-        state.isLoading = Status.secces
+        state.isLoading = Status.SUCCESS
       })
       builder.addCase(getFavoritesFromLS.rejected, (state, action) => {
         state.busketData = []
-        state.isLoading = Status.rejected
+        state.isLoading = Status.Error
       })
     }
 })

@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { favoriteTypes } from './typesSlice/types';
 
+enum LoadStatus {
+  Loading = 'LOADING',
+  SUCCESS = 'SUCCESS',
+  Error = 'ERROR',
+}
+
 type initialTypes = {
   favorites:favoriteTypes[],
-  status:string}
+  status:LoadStatus
+}
 
 export const getFavoritesFromLS = ():initialTypes => {
-    let status = 'LOADING'
+    let status = LoadStatus.Loading
     const data = localStorage.getItem('fav');
     const favorites =  data ? JSON.parse(data) : [];
-    status = 'SECCES'
+    status = LoadStatus.SUCCESS
     return {favorites, status};
 }
 let { favorites, status } = getFavoritesFromLS();

@@ -4,11 +4,11 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/pages/Home';
 import Favorites from './components/pages/Favorites';
-import { Menu } from './components/Menu/Menu';
 import Drawer from './components/Drawer/Drawer';
+import { Menu } from './components/Menu/Menu';
 import { GalleryItems } from './components/GalleryItems/GalleryItems';
 
-function App() {
+const App:React.FC = () => {
   return (
     <div className='wrapper'>
         <Drawer />

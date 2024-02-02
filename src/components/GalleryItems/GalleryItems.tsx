@@ -8,7 +8,7 @@ import { RootState } from '../../redux/store';
 import { Item } from '../../redux/slice/typesSlice/types';
 
 export function GalleryItems() {
-const params:Readonly<Params<string>> = useParams();
+const params:Readonly<Params<string>> = useParams<string>();
 const { items } = useSelector((el:RootState) => el.items)
 const elem:Item[] = items.filter(el =>  el?.id === Number(params.id));
 

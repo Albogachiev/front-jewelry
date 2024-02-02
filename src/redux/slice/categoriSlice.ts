@@ -3,7 +3,7 @@ import { TypeCategori } from './typesSlice/types';
   
   const initialState:TypeCategori = { 
       categori:[
-        'все', 'золото','серебро','бижутерия','золото','итальянское',
+        ...new Set(['все', 'золото','серебро','бижутерия','итальянское'])
       ],
       selectCategori:''
   }
@@ -14,9 +14,10 @@ const categoriSlice = createSlice({
   reducers: {
     setCategori(state, actions:PayloadAction<string>){
         if(actions.payload === 'все'){
-            state.selectCategori = ''  
+          state.selectCategori = ''  
+        }else{
+          state.selectCategori = actions.payload
         }
-      state.selectCategori = actions.payload
     },
   },
 })

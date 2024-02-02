@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
-  
-  const initialState:{openedBusket:boolean} = { 
-      openedBusket:false,
-  }
+
+interface OpenedBusketState {
+  openedBusket: boolean;
+}
+
+const initialState:OpenedBusketState = { 
+    openedBusket:false,
+}
 
 const openedSlice = createSlice({
   name: 'opened',

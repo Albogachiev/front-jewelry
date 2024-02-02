@@ -85,7 +85,7 @@ const Drawer = () => {
         </ul>
         
         <button className={styles.buttonDraw} 
-                disabled={isLoading === 'SECCES' ? true : false} 
+                disabled={isLoading === 'SUCCESS' ? true : false} 
                 onClick={onClickComplete}>Оформить заказ</button>
                 
         </div>}

@@ -1,8 +1,8 @@
 import { RootState } from "../../redux/store.js";
-import Card from "../Card/Card";
 import { useSelector } from "react-redux";
+import Card from "../Card/Card";
 
-const Favorites = () => {
+const Favorites:React.FC = () => {
     const { favorites, status } = useSelector((el:RootState) => el.favorited)
     return (
         <>

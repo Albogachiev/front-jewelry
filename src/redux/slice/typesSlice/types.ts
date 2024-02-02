@@ -4,7 +4,7 @@ export interface TypeCategori {
     selectCategori:string
 }
 export enum Status {
-	Success = 'SECCES',
+	SUCCESS = 'SUCCESS',
 	Error = 'ERROR',
     Loading= 'LOADING'
 }
@@ -22,7 +22,7 @@ export type Item = {
 }
 export interface TypeBusket {
     busketData:favoriteTypes[],
-    isLoading:string,
+    isLoading:Status,
     summBasket:number
 }
 

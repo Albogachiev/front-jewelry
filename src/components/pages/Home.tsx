@@ -4,7 +4,7 @@ import { setSearchValue, itemsFetchData } from '../../redux/slice/itemsHome';
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
 
-const Home = () => {
+const Home:React.FC = () => {
     const dispatch = useAppDispatch()
     const { items, searchValue, status } = useSelector((el:RootState) => el.items);
     const { selectCategori, } = useSelector((el:RootState) => el.categori)

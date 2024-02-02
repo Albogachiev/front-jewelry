@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-//@ts-ignore
+
 import style from './Menu.module.css';
 import { setCategori } from '../../redux/slice/categoriSlice';
 import { RootState } from '../../redux/store';
