@@ -13,7 +13,7 @@ const initialState:TypeItems = {
     let data:Item[] = [
       {id:1, title:'Baldinini', name:'серебро', price:1200, img:['/img/a1.png', '/img/a6.png', '/img/a7.png']},
       {id:2, title:'от BlackWood', name:'золото', price:1300, img:['/img/a2.png', '/img/a5.png', '/img/a5.png']},
-      {id:3, title:'Позолото от Blunt', name:'бижутерия', price:2200, img:['/img/a3.png', '/img/a4.png', '/img/a4.png']},
+      {id:3, title:'Позол Blunt', name:'бижутерия', price:2200, img:['/img/a3.png', '/img/a4.png', '/img/a4.png']},
       {id:4, title:'От Boccadamo', name:'бижутерия', price:4200, img:['/img/a4.png', '/img/a3.png', '/img/a3.png']},
       {id:5, title:'Бижутерия Bugatti', name:'золото', price:4400, img:['/img/a5.png', '/img/a2.png', '/img/a2.png']},
       {id:6, title:'Ювелирка Dziubeka', name:'серебро', price:5200, img:['/img/a6.png', '/img/a1.png', '/img/a1.png']},
