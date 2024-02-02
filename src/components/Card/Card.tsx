@@ -1,22 +1,22 @@
 import React, { useRef } from "react";
-//@ts-ignore
-import style from "./Card.module.scss";
-import ContentLoader from "react-content-loader";
 import { Link } from "react-router-dom";
+import ContentLoader from "react-content-loader";
 import { useSelector, useDispatch } from "react-redux";
 
+import style from "./Card.module.scss";
 import { setBusket,
          setDeleteBusket,} from "../../redux/slice/locStorBusket";
-import { setDeleteFavorite, 
+import { setDeleteFavorite,
          setFavorited } from "../../redux/slice/locStorFavorite";
 import { RootState } from "../../redux/store";
 import { Item } from "../../redux/slice/typesSlice/types";
+
 type cardTypes = Item & {
     status:string,
     favCard?:string
 }
 
-const Card:React.FC<cardTypes> = ({id,name,title,price,img,status,favCard}) =>{
+export const Card:React.FC<cardTypes> = ({id,name,title,price,img,status,favCard}) =>{
     const dispatch = useDispatch()
     const ref = useRef(false)
     const { busketData, } = useSelector((el:RootState) => el.busket);
@@ -117,9 +117,6 @@ const Card:React.FC<cardTypes> = ({id,name,title,price,img,status,favCard}) =>{
            </div>
            </>)
            }
-            
         </div>
     )
 }
-export default Card;
-

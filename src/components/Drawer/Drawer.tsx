@@ -1,14 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-//@ts-ignore
-import styles from './Drawer.module.scss';
 import { setDeleteBusket, } from '../../redux/slice/locStorBusket';
 import { setOpenedBusket } from '../../redux/slice/opened';
 import { RootState } from '../../redux/store';
-import Info from '../Info';
 import { favoriteTypes } from '../../redux/slice/typesSlice/types';
+import Info from '../Info';
+import styles from './Drawer.module.scss';
 
-const Drawer = () => {
+export const Drawer:React.FC = () => {
     const dispatch = useDispatch();
     const { busketData, 
             summBasket, 
@@ -57,9 +56,7 @@ const Drawer = () => {
                          onClick={()=> removeItemInBusket(obj)} />
                 </div>
             ))
-
        : 
-
        <Info 
         discription={isComplete ? 'Заказ оформлен!' : 'Корзина пуста.'}
         img={isComplete ? '/img/complete-order.jpg' : '/img/cartEmpty.jpg'}
@@ -83,16 +80,12 @@ const Drawer = () => {
                 <b>{Math.round(summBasket / 100 * 10)} руб.</b>
             </li>
         </ul>
-        
         <button className={styles.buttonDraw} 
                 disabled={isLoading === 'SUCCESS' ? true : false} 
                 onClick={onClickComplete}>Оформить заказ</button>
                 
         </div>}
-
-        
     </div>
     </div>
     )
 }
-export default Drawer;

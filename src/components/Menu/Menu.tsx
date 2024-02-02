@@ -4,7 +4,7 @@ import style from './Menu.module.css';
 import { setCategori } from '../../redux/slice/categoriSlice';
 import { RootState } from '../../redux/store';
 
-export function Menu() {
+export const Menu:React.FC = () => {
 const { categori, } = useSelector((el:RootState) => el.categori);
 
 const dispatch = useDispatch()

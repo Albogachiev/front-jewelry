@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Card/Card";
+import { Card } from "../Card/Card";
 import { setSearchValue, itemsFetchData } from '../../redux/slice/itemsHome';
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
@@ -8,13 +8,10 @@ const Home:React.FC = () => {
     const dispatch = useAppDispatch()
     const { items, searchValue, status } = useSelector((el:RootState) => el.items);
     const { selectCategori, } = useSelector((el:RootState) => el.categori)
-    
-
     const renderItems = () =>{
         const filteredItems = items.filter((item) => item?.title.toLowerCase().includes(searchValue.toLowerCase()));
-        const categori = items.filter((el) => selectCategori.toLowerCase().includes(el?.title) 
-                                            || selectCategori.toLowerCase().includes(el?.name));
-        
+        const categori = filteredItems.filter((el) => el?.title.toLowerCase().includes(selectCategori.toLowerCase()));
+
         return ((categori.length > 0) ? categori 
                                     : filteredItems).map((obj, index) => 
                ( <Card

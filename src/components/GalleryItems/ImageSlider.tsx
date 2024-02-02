@@ -1,11 +1,14 @@
 import React from 'react';
-//@ts-ignore
 import styles from './GalleryItems.module.css';
 import { Item } from '../../redux/slice/typesSlice/types';
 
-export default function ImageSlider({elem}:{elem:Item[]}) {
+interface ImageSliderProps {
+  elem: Item[];
+}
+
+export const ImageSlider:React.FC<ImageSliderProps> = ({elem}) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const slider = elem?.map((el) => el.img)[0];
+  const slider = elem.map((el) => el.img)[0];
   
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
@@ -21,11 +24,11 @@ export default function ImageSlider({elem}:{elem:Item[]}) {
 
   return (
     <div className={styles.sliderSlideContainer}>
-      {slider &&
+      {slider?.length > 0 &&
       <>
         <img className={styles.leftArrow} onClick={goToPrevious} src='/img/left.png' alt="img" />
         <img className={styles.rightArrow} onClick={goToNext} src='/img/right.png' alt="img" />
-      <div className={styles.styleSlide} style={{backgroundImage: `url(${slider[currentIndex]})`,}}>
+        <div className={styles.styleSlide} style={{backgroundImage: `url(${slider[currentIndex]})`,}}>
 
       </div>
       </> 
