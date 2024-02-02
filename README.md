@@ -15,20 +15,21 @@
 
 * Главная страница
 
-![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-22%2016-28-20.png)
+![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/главная.png)
 
-* Закладки
-
-![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-22%2016-15-33.png)
 
 * Корзина
 
-![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-22%2016-20-36.png)
+![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/корзина.png)
 
-* Оформление заказа
+* Адаптированная версия
 
-![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-22%2016-15-16.png)
+![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/мобильная%20версия.png)
 
-* Поиск 
+* Фильтрация по поиску и категориям
 
-![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202023-08-22%2016-14-41.png)
+![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/поиск.png)
+
+* Оформление заказа 
+
+![ссылка на мой канал](https://raw.githubusercontent.com/Albogachiev/front-jewelry/main/public/imgPage/оформление%20заказа.png)
