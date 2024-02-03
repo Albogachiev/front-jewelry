@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { TypeBusket, favoriteTypes, Status } from './typesSlice/types';
 
-export const getFavoritesFromLS = createAsyncThunk(
-  'busket/getFavoritesFromLS',
+export const getBusketFromLS = createAsyncThunk(
+  'busket/getBusketFromLS',
      async ():Promise<{busketData:favoriteTypes[], summBasket:number}> => {
      const data = localStorage.getItem('busket');
      const busketData:favoriteTypes[] =  data ? JSON.parse(data) : [];
@@ -42,16 +42,16 @@ export const getFavoritesFromLS = createAsyncThunk(
       },
     },
     extraReducers: (builder) => {
-      builder.addCase(getFavoritesFromLS.pending, (state, action) => {
+      builder.addCase(getBusketFromLS.pending, (state, action) => {
         state.busketData = [...Array(8)]
         state.isLoading = Status.Loading
       })
-      builder.addCase(getFavoritesFromLS.fulfilled, (state, action) => {
+      builder.addCase(getBusketFromLS.fulfilled, (state, action) => {
         state.busketData = action.payload.busketData
         state.summBasket = action.payload.summBasket
         state.isLoading = Status.SUCCESS
       })
-      builder.addCase(getFavoritesFromLS.rejected, (state, action) => {
+      builder.addCase(getBusketFromLS.rejected, (state, action) => {
         state.busketData = []
         state.isLoading = Status.Error
       })

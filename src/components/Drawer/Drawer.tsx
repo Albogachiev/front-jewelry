@@ -40,14 +40,14 @@ export const Drawer:React.FC = () => {
                 <div key={i} className={styles.cartItem}>
 
                     <img width={80} 
-                         src={obj.img[0]} 
+                         src={obj?.img[0]} 
                          className={styles.imgCard} 
                          alt='a1' />
 
                     <div className={styles.drawerText}>
                     
-                    <p>{obj.title}</p>
-                    <b className='price'>{obj.price}</b>
+                    <p>{obj?.title}</p>
+                    <b className='price'>{obj?.price}</b>
                     </div>
 
                     <img className={styles.imgexit2} 
@@ -81,7 +81,7 @@ export const Drawer:React.FC = () => {
             </li>
         </ul>
         <button className={styles.buttonDraw} 
-                disabled={isLoading === 'SUCCESS' ? true : false} 
+                disabled={isLoading !== 'SUCCESS' ? true : false} 
                 onClick={onClickComplete}>Оформить заказ</button>
                 
         </div>}

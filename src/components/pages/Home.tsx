@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "../Card/Card";
 import { setSearchValue, itemsFetchData } from '../../redux/slice/itemsHome';
+import { getBusketFromLS } from "../../redux/slice/locStorBusket";
 import { useSelector } from "react-redux";
 import { RootState, useAppDispatch } from "../../redux/store";
 
@@ -24,6 +25,7 @@ const Home:React.FC = () => {
     
     React.useEffect(() => {
     dispatch(itemsFetchData())
+    dispatch(getBusketFromLS())
     },[dispatch]);
 
     return (
